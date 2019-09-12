@@ -1,6 +1,76 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
+@import 'reset';
+
 $primary-background: pink;
+$primary-fonts: 'Roboto', sans-serif;
+$regular-fonts: 'Manjari', sans-serif;
 
 body {
-  background-color: $primary-background;
+  font-family: $primary-fonts;
+}
+
+.tab-container {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    display: inline-block;
+    background: #999;
+    margin: 0;
+    padding: 11px 40px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 30px;
+    &:hover {
+      color: #fff;
+      background: #f1c40f;
+    }
+  }
+}
+
+.tab-container ul li.active {
+  color: #fff;
+  background: #f1c40f;
+}
+
+.tab-container .panel {
+  display: none;
+  background: #c9c9c9;
+  padding: 30px;
+  border-radius: 0 0 10px 10px;
+}
+
+.tab-container .panel.active {
+  display:block;
+}
+
+#panel1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  p {
+    text-align: center;
+    font-size: 27px;
+    margin: 20px;
+  }
+  div {
+    text-align: center;
+    font-size: 30px;
+    padding: 30px;
+  }
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 10em;
+}
+
+h1 {
+  font-size: 2em;
+  padding: 20px;
 }
