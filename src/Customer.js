@@ -1,4 +1,4 @@
-class Customer{
+class Customer {
 
 }
 

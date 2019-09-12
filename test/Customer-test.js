@@ -11,6 +11,7 @@ describe('Customer', () => {
     customer = new Customer(sampleData);
   });
 
-  
-
+  it('should be a function', () => {
+    expect(Customer).to.be.a('function');
+  })
 })

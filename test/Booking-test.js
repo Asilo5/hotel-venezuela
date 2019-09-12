@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import Booking from '../src/Booking';
+import Booking from '../src/Bookings';
 import sampleData from '../src/sample-data/all-sample-data'
 
 describe('Booking', () => {
@@ -11,6 +11,8 @@ describe('Booking', () => {
     booking = new Booking(sampleData);
   });
 
-  
+  it('should be a function', () => {
+    expect(Booking).to.be.a('function');
+  })
 
 })

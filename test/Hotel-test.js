@@ -11,6 +11,8 @@ describe('Hotel', () => {
     hotel = new Hotel(sampleData);
   });
 
-  
+  it('should be a function', () => {
+    expect(Hotel).to.be.a('function');
+  })
 
 })
