@@ -4,6 +4,26 @@ class Booking {
     this.name = name;
   }
 
+  bookRoom(name, date) {
+
+  }
+
+  unbookRoom(name, date) {
+
+  }
+
+  purchaseRoomService(name, date) {
+
+  }
+
+  upgradeRoom(name) {
+
+  }
+
+  summaryOfGuestBookings(name) {
+
+  }
+
 }
 
 export default Booking;
