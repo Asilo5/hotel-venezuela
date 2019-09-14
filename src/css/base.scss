@@ -7,6 +7,9 @@ $regular-fonts: 'Manjari', sans-serif;
 
 body {
   font-family: $primary-fonts;
+  background-image: url('https://pbs.twimg.com/media/DHR906ZXkAAqs_f.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .tab-container {
