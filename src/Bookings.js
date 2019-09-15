@@ -5,11 +5,17 @@ class Booking {
     this.hotel = hotel;
   }
 
-  bookRoom(date) {
-
+  bookRoom(chosenDate, roomNum) {
+    let bookedRoom = {
+      userID: this.id,
+      date: chosenDate,
+      roomNumber: roomNum
+    };
+    this.hotel.bookings.push(bookedRoom);
+    return this.hotel.bookings[this.hotel.bookings.length - 1];
   }
 
-  unbookRoom(date) {
+  unbookRoom(date, roomNumber) {
 
   }
 
