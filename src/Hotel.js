@@ -7,6 +7,7 @@ class Hotel {
     this.rooms = data.rooms;
     this.bookings = data.bookings;
     this.roomServices = data.roomServices;
+    this.customer;
   }
 
   bookingsAndServicesForDay(date, hotelData) {
@@ -17,10 +18,10 @@ class Hotel {
     return this[hotelData].find((guest) => guest.name === name);
   }
 
-  findExistingGuest(name) {
+  findExistingGuest(name, hotel) {
     if (this.searchGuestInData(name, 'users')) {
       console.log('USER FOUND');
-      let customer = new Customer(name, this.searchGuestInData(name, 'users').id)
+      this.customer = new Customer(this.searchGuestInData(name, 'users').id, name, hotel)
     } else {
       console.log('USER NOT FOUND')
       domUpdates.userNotFound();

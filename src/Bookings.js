@@ -1,26 +1,27 @@
 class Booking {
-  constructor(id, name) {
+  constructor(id, name, hotel) {
     this.id = id;
     this.name = name;
+    this.hotel = hotel;
   }
 
-  bookRoom(name, date) {
-
-  }
-
-  unbookRoom(name, date) {
+  bookRoom(date) {
 
   }
 
-  purchaseRoomService(name, date) {
+  unbookRoom(date) {
 
   }
 
-  upgradeRoom(name) {
+  purchaseRoomService(date) {
 
   }
 
-  summaryOfGuestBookings(name) {
+  upgradeRoom() {
+
+  }
+
+  summaryOfGuestBookings() {
 
   }
 

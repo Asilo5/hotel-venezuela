@@ -100,7 +100,7 @@ describe('Hotel', () => {
     expect(hotel.popularBookingDateAndRoomsAvailable('min')).to.equal('2019/09/13');
   })
 
-  it.only('should filter rooms by type', () => {
+  it('should filter rooms by type', () => {
     expect(hotel.filterRoomsByType('suite')).to.eql([
       {
         number: 3,
