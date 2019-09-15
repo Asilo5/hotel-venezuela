@@ -15,24 +15,27 @@ describe('Hotel', () => {
     expect(Hotel).to.be.a('function');
   })
 
-  it('should show all room service charges for that date', () => {
-    expect(hotel.dailyRoomServiceCharges(date)).to.eql();
-  })
-
-  it('should show all bookings for that date', () => {
-    expect(hotel.dailyBookings(date)).to.eql();
+  it('should show all bookings and services for that date', () => {
+    expect(hotel.bookingsAndServicesForDay('2019/09/30', 'bookings')).to.eql(
+      [
+        { userID: 1, date: '2019/09/30', roomNumber: 4 },
+        { userID: 5, date: '2019/09/30', roomNumber: 8 },
+        { userID: 1, date: '2019/09/30', roomNumber: 18 }
+      ]
+    );
   })
 
   it('should use the name of the guest to find the ID', () => {
-    expect(hotel.searchGuestInAllData(name)).to.eql();
+    expect(hotel.searchGuestInData('Winnifred Kris', 'users')).to.eql({ id: 6, name: 'Winnifred Kris' });
   })
 
   it('should find existing guest', () => {
-    expect(hotel.findExistingGuest(name)).to.eql();
+    // USE SPY HERE
+    expect(hotel.findExistingGuest('Winnifred Kris')).to.eql();
   })
 
-  it('should add guest to data', () => {
-    expect(hotel.addGuest(name)).to.eql();
+  it.only('should add guest to data', () => {
+    expect(hotel.addGuest('Consuelo')).to.eql();
   })
 
   it('should return rooms available today', () => {

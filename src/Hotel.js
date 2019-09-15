@@ -1,3 +1,6 @@
+import Customer from './Customer';
+import domUpdates from './domUpdates';
+
 class Hotel {
   constructor(data) {
     this.users = data.users;
@@ -6,24 +9,35 @@ class Hotel {
     this.roomServices = data.roomServices;
   }
 
-  dailyRoomServiceCharges(date) {
-
+  bookingsAndServicesForDay(date, hotelData) {
+    return this[hotelData].filter((booking) => booking.date === date);
   }
 
-  dailyBookings(date) {
-
-  }
-
-  searchGuestInData(name) {
-    // return ID
+  searchGuestInData(name, hotelData) {
+    return this[hotelData].find((guest) => guest.name === name);
   }
 
   findExistingGuest(name) {
-    // here we instantiate the new customer
+    if (this.searchGuestInData(name, 'users')) {
+      console.log('USER FOUND');
+      let customer = new Customer(name, this.searchGuestInData(name, 'users').id)
+    } else {
+      console.log('USER NOT FOUND')
+      domUpdates.userNotFound();
+    }
+  }
+
+  addGuest(guestName) {
+    let newGuest = {
+      id: this.users.length + 1,
+      name: guestName
+    }
+
+    console.log(newGuest)
   }
 
   roomsAvailableToday(date) {
-
+   
   }
 
   revenueToday(date) {
@@ -43,7 +57,7 @@ class Hotel {
   }
 
   filterRoomsByType(type) {
-      
+
   }
 
 }
