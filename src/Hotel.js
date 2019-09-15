@@ -79,16 +79,24 @@ class Hotel {
     return Number(findPercentage.toFixed(1));
   }
 
-  popularBookingDate() {
-
+  popularAndUnpopularRooms() {
+    return this.bookings.reduce((allDates, booking) => {
+      if (!allDates[booking.date]) {
+        allDates[booking.date] = 1;
+      } else {
+        allDates[booking.date]++;
+      }
+      return allDates;
+    }, {});
   }
 
-  mostRoomsAvailableDay() {
-
+  popularBookingDateAndRoomsAvailable(value) {
+    let popularDate = Math[value](...Object.values(this.popularAndUnpopularRooms()));
+    return Object.keys(this.popularAndUnpopularRooms()).find((bookDate) => this.popularAndUnpopularRooms()[bookDate] === popularDate);
   }
 
   filterRoomsByType(type) {
-
+    return this.rooms.filter((room) => room.roomType === type);
   }
 
 }
