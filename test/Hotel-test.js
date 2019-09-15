@@ -34,23 +34,48 @@ describe('Hotel', () => {
     expect(hotel.findExistingGuest('Winnifred Kris')).to.eql();
   })
 
-  it.only('should add guest to data', () => {
-    expect(hotel.addGuest('Consuelo')).to.eql();
+  it('should add guest to data', () => {
+    expect(hotel.addGuest('Consuelo')).to.eql({ id: 11, name: 'Consuelo' });
   })
 
   it('should return rooms available today', () => {
-    expect(hotel.roomsAvailableToday(date)).to.eql();
+    expect(hotel.roomsAvailableToday('2019/09/30')).to.eql([
+      {
+        number: 4,
+        roomType: 'junior suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 177.03
+      },
+      {
+        number: 8,
+        roomType: 'suite',
+        bidet: false,
+        bedSize: 'full',
+        numBeds: 1,
+        costPerNight: 177.04
+      },
+      {
+        number: 18,
+        roomType: 'suite',
+        bidet: true,
+        bedSize: 'twin',
+        numBeds: 2,
+        costPerNight: 200.05
+      }
+    ]);
   })
 
   it('should return revenue today', () => {
-    expect(hotel.revenueToday(date)).to.eql();
+    expect(hotel.revenueToday('2019/09/30')).to.equal(583.9);
   })
 
   it('should return percent of rooms occupied today', () => {
-    expect(hotel.roomsPercentOccupiedToday(date)).to.eql();
+    expect(hotel.roomsPercentOccupiedToday('2019/09/30')).to.equal(16.7);
   })
 
-  it('should return most popular booking date', () => {
+  it.only('should return most popular booking date', () => {
     expect(hotel.popularBookingDate()).to.equal();
   })
 
@@ -59,7 +84,7 @@ describe('Hotel', () => {
   })
 
   it('should filter rooms by type', () => {
-    expect(hotel.filterRoomsByType(type)).to.equal();
+    expect(hotel.filterRoomsByType('suite')).to.equal();
   })
 
 })

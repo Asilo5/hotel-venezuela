@@ -32,20 +32,51 @@ class Hotel {
       id: this.users.length + 1,
       name: guestName
     }
-
-    console.log(newGuest)
+    this.users.push(newGuest);
+    return this.users[this.users.length - 1];
   }
 
   roomsAvailableToday(date) {
-   
+    let findRoomNum = this.bookingsAndServicesForDay(date, 'bookings')
+      .map((room) => room.roomNumber);
+
+    return findRoomNum.reduce((totalRooms, room) => {
+      this.rooms.forEach((bedroom) => {
+        if (bedroom.number === room) {
+          totalRooms.push(bedroom);
+        }
+      })
+      return totalRooms;
+    }, [])
   }
 
   revenueToday(date) {
+    let findBookedRooms = this.bookingsAndServicesForDay(date, 'bookings')
+      .map((room) => room.roomNumber);
 
+    let bookingsRevenue = this.rooms.reduce((totalBooked, room) => {
+      findBookedRooms.forEach((bedroom) => {
+        if (room.number === bedroom) {
+          totalBooked += room.costPerNight
+        }
+      })
+      return totalBooked;
+    }, 0);
+
+    let findServiceRevenue = this.roomServices.reduce((totalService, service) => {
+      if (service.date === date) {
+        totalService += service.totalCost;
+      }
+      return totalService;
+    }, 0);
+
+    return Number((bookingsRevenue + findServiceRevenue).toFixed(2));
   }
 
   roomsPercentOccupiedToday(date) {
-
+    let bookedRooms = this.bookingsAndServicesForDay(date, 'bookings').length;
+    let findPercentage = (bookedRooms / this.bookings.length) * 100;
+    return Number(findPercentage.toFixed(1));
   }
 
   popularBookingDate() {
