@@ -14,4 +14,20 @@ describe('Customer', () => {
   it('should be a function', () => {
     expect(Customer).to.be.a('function');
   })
+
+  it('should return brokendown services from guest', () => {
+    expect(customer.roomServiceBreakDown(name)).to.eql();
+  })
+
+  it('should return total of all room service for today', () => {
+    expect(customer.totalRoomServiceToday(name, date)).to.eql();
+  })
+
+  it('should return overall room service total', () => {
+    expect(customer.overallRoomServiceTotal(name)).to.equal(0);
+  })
+
+  it('should instantiate new class of bookings', () => {
+    expect(customer.bookingsFromGuest()).to.equal()
+  })
 })
