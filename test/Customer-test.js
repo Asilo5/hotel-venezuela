@@ -36,6 +36,12 @@ describe('Customer', () => {
         date: '2019/9/23',
         food: 'Refined Cotton Sandwich',
         totalCost: 8.68
+      },
+      {
+        userID: 6,
+        date: '2019/09/14',
+        food: 'Rustic Cotton Sandwich',
+        totalCost: 7.33
       }
     ]);
   })
@@ -45,7 +51,7 @@ describe('Customer', () => {
   })
 
   it('should return overall room service total', () => {
-    expect(customer.overallRoomServiceTotal()).to.equal(40.86);
+    expect(customer.overallRoomServiceTotal()).to.equal(48.19);
   })
 
   it('should instantiate new class of bookings', () => {

@@ -17,24 +17,33 @@ describe('Booking', () => {
     expect(Booking).to.be.a('function');
   })
 
-  it.only('should book a room for guest', () => {
+  it('should book a room for guest', () => {
     expect(booking.bookRoom('2019/09/14', 5)).to.eql({ userID: 6, date: '2019/09/14', roomNumber: 5 });
   })
 
   it('should unbook a room for guest', () => {
-    expect(booking.unbookRoom(date)).to.eql();
+    // chai spy here
+    expect(booking.unbookRoom('2019/09/21', 12)).to.eql();
   })
 
   it('should purchase room service for guest', () => {
-    expect(booking.purchaseRoomService(date)).to.eql();
+    expect(booking.purchaseRoomService('2019/09/14', 'Rustic Cotton Sandwich')).to.eql({
+      userID: 6,
+      date: '2019/09/14',
+      food: 'Rustic Cotton Sandwich',
+      totalCost: 7.33
+    });
   })
 
   it('should upgrade room for guest', () => {
-    expect(booking.upgradeRoom()).to.eql();
+    expect(booking.upgradeRoom('2019/09/14', 12, 48)).to.eql({ userID: 6, date: '2019/09/14', roomNumber: 48 });
   })
 
   it('should return summary of guests bookings', () => {
-    expect(booking.summaryOfGuestBookings()).to.eql();
+    expect(booking.summaryOfGuestBookings()).to.eql([
+      { userID: 6, date: '2019/09/23', roomNumber: 9 },
+      { userID: 6, date: '2019/09/14', roomNumber: 48 }
+    ]);
   })
 
 })
