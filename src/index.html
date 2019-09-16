@@ -60,7 +60,7 @@
             <section class='bookings'>
               <div class='default-bookings'>
                 <div class="most-popular-section">
-                  <p> Most Popular Booking: </p>
+                  <p> Most Popular Booking Date: </p>
                   <p class="most-popular-date"></p>
                 </div>
                 <div class="most-rooms-section">
@@ -70,21 +70,42 @@
               </div>
               <div class='search-rooms-section'>
                 <form>
-                  <input type="date">
+                  <input class='rooms-input' type="date">
                   <button>Search</button>
                 </form>
                 <div class="show-rooms-container"></div>
               </div>
               <div class="guest-bookings">
+                <p>Guests Booking Summary</p>
                 <div class="bookings-summary"></div>
               </div>
             </section>
           </section>
               
           <section id="panel4" class="panel">
-            <div class='orders'>
-        
-            </div>
+            <section class='orders'>
+              <form>
+                <input class='orders-input' type="date">
+                <button>Search</button>
+              </form>
+              <div class='default-orders'>
+                <div class='all-orders-container'>
+                  <p>Orders for Today:</p>
+                  <div class='all-orders-today'></div>
+                </div>
+              </div>
+              <div class="guest-orders">
+                  <div class="room-service-breakdown">
+                     
+                  </div>
+                  <div class="total-spent-ever">
+                    <p class="room-service-total"></p>
+                  </div>
+                  <div class="money-spent-on-date">
+                    
+                  </div>
+              </div>
+            </section>
           </section>
 
         </section>

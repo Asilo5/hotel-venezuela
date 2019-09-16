@@ -54,12 +54,22 @@ setTimeout( () => {
   hotel = new Hotel(allData);
   $('.revenue-today').html(hotel.revenueToday(today));
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
-  searchCustomer(hotel);
+  searchCustomer();
+  appendRooms();
 }, 500);
 
-function searchCustomer(hotel) {
+function searchCustomer() {
   console.log(hotel.findExistingGuest('Winnifred Kris', hotel))
-  // console.log(hotel.customer.bookings.summaryOfGuestBookings())
+
+}
+
+function appendRooms() {
+  $('.most-popular-date').html(hotel.popularBookingDateAndRoomsAvailable('max'));
+  $('.most-rooms-available').html(hotel.popularBookingDateAndRoomsAvailable('min'));
+}
+
+function appendOrders() {
+
 }
 
   
