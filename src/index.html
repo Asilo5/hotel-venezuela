@@ -13,7 +13,7 @@
       <section class="tab-container">
         <ul class="tabs">
             <li data-id="panel1" class="active">Main</li>
-            <li data-id="panel2">Customer</li>
+            <li data-id="panel2">Guest</li>
             <li data-id="panel3">Rooms</li>
             <li data-id="panel4">Orders</li>
         </ul>
@@ -30,23 +30,55 @@
                  <p>Rooms Occupied Today:</p>
                  <p><span class='rooms-occupied-today'></span>%</p>
                </div>
-               <div class='rooms-available-container'>
-                 <p>Rooms Available:</p>
-                 <p><span class='rooms-available-today'>0</span></p>
+               <div>
+                 <button class="back-to-default"> Back To Default </button>
                </div>
             </section>
           </section>
   
           <section id="panel2" class="panel">
-            <div class='customer'>
-        
-            </div>
+            <section class='guest'>
+              <div class='search-guest'>
+                 <form class="search-guest-form">
+                   <input class='search-for-guest-input' type="text" placeholder="Search For Guest">
+                   <button class="search-for-guest-button"> Search </button>
+                 </form>
+              </div>
+              <div class='default-guest'>
+                 <form class="add-guest-form">
+                    <input class='add-guest-input' type="text" placeholder="Add Guests Name">
+                    <button class="add-guest-button"> Add </button>
+                  </form>
+              </div>
+              <div class='guest-info'>
+                
+              </div>
+            </section>
           </section>
   
           <section id="panel3" class="panel">
-            <div class='bookings'>
-        
-            </div>
+            <section class='bookings'>
+              <div class='default-bookings'>
+                <div class="most-popular-section">
+                  <p> Most Popular Booking: </p>
+                  <p class="most-popular-date"></p>
+                </div>
+                <div class="most-rooms-section">
+                  <p> Date With Most Rooms Available: </p>
+                  <p class="most-rooms-available"></p>
+                </div>
+              </div>
+              <div class='search-rooms-section'>
+                <form>
+                  <input type="date">
+                  <button>Search</button>
+                </form>
+                <div class="show-rooms-container"></div>
+              </div>
+              <div class="guest-bookings">
+                <div class="bookings-summary"></div>
+              </div>
+            </section>
           </section>
               
           <section id="panel4" class="panel">

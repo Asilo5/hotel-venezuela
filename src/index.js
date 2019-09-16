@@ -54,13 +54,12 @@ setTimeout( () => {
   hotel = new Hotel(allData);
   $('.revenue-today').html(hotel.revenueToday(today));
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
-  $('.rooms-available-today').html(hotel.roomsAvailableToday(today));
   searchCustomer(hotel);
 }, 500);
 
 function searchCustomer(hotel) {
   console.log(hotel.findExistingGuest('Winnifred Kris', hotel))
-  console.log(hotel.customer.bookings.id)
+  // console.log(hotel.customer.bookings.summaryOfGuestBookings())
 }
 
   

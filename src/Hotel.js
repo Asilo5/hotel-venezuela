@@ -48,7 +48,7 @@ class Hotel {
         }
       })
       return totalRooms;
-    }, []).length;
+    }, []);
   }
 
   revenueToday(date) {
