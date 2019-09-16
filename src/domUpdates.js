@@ -14,6 +14,13 @@ let domUpdates = {
     hotelData.forEach((guest) => {
       $('.search-for-guest-input').append(`<option value="${guest.name}">${guest.name}</option>`)
     })
+  },
+
+  appendServicesForToday(services) {
+    services.forEach((service) => {
+      $('.all-orders-today').append(`
+      Date: ${service.date} Food: ${service.food} Cost: $ ${service.totalCost}`)
+    })
   }
 
 };

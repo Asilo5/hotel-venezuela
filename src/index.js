@@ -59,6 +59,7 @@ setTimeout( () => {
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
   searchCustomer();
   appendRooms();
+  domUpdates.appendServicesForToday(hotel.servicesForDay(today));
 }, 500);
 
 function searchCustomer() {
@@ -68,11 +69,24 @@ function searchCustomer() {
 $('.search-for-guest-button').on('click', function(e) {
   e.preventDefault();
   let chosenGuest = $('.search-for-guest-input').val();
-  $('h1').text(chosenGuest)
+  guestInput(chosenGuest);
+  appendOrders();
+})
+
+$('.add-guest-button').on('click', function(e) {
+  e.preventDefault();
+  let newGuest = $('.add-guest-input').val();
+  hotel.addGuest(newGuest);
+  guestInput(newGuest);
+  // domUpdates.guestAdded();
+})
+
+function guestInput(chosenGuest) {
+  $('h1').text(chosenGuest);
   hotel.findExistingGuest(chosenGuest, hotel);
   hotel.customer.bookingsFromGuest();
-  appendOrders()
-})
+  appendOrders();
+}
 
 function appendRooms() {
   $('.most-popular-date').html(hotel.popularBookingDateAndRoomsAvailable('max'));
@@ -82,13 +96,13 @@ function appendRooms() {
 function appendOrders() {
   $('.room-service-total').html(hotel.customer.overallRoomServiceTotal());
   $('.money-spent-on-date').html(hotel.customer.totalRoomServiceToday(today));
-  domUpdates.appendServicesForToday(hotel.servicesForDay(today));
   domUpdates.appendOrdersBreakDown(hotel.customer.roomServiceBreakDown());
 }
 
 $('.back-to-default').on('click', function() {
   location.reload(true);
 })
+
 
   
   
