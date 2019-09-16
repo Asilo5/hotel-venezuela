@@ -8,7 +8,7 @@ import sampleData from '../src/sample-data/all-sample-data'
 describe('Customer', () => {
   let customer, hotel;
 
-  beforeEach(() => {
+  beforeEach(() => { 
     hotel = new Hotel(sampleData);
     customer = new Customer(6, 'Winnifred Kris', hotel);
   });

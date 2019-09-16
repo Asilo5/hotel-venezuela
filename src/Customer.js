@@ -15,7 +15,7 @@ class Customer {
   }
 
   totalRoomServiceToday(date) {
-    return this.hotel.roomServices.filter((service) => service.date === date)
+    return this.roomServiceBreakDown().filter((service) => service.date === date)
       .reduce((serviceTotal, service) => {
         return serviceTotal += service.totalCost
       }, 0);

@@ -86,6 +86,10 @@ function appendOrders() {
   domUpdates.appendOrdersBreakDown(hotel.customer.roomServiceBreakDown());
 }
 
+$('.back-to-default').on('click', function() {
+  location.reload(true);
+})
+
   
   
   
