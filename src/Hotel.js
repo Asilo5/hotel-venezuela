@@ -10,8 +10,12 @@ class Hotel {
     this.customer;
   }
 
-  bookingsAndServicesForDay(date) {
+  bookingsForDay(date) {
     return this.bookings.filter((booking) => booking.date === date);
+  }
+
+  servicesForDay(date) {
+    return this.roomServices.filter((services) => services.date === date);
   }
 
   searchGuestInData(name) {
@@ -38,7 +42,7 @@ class Hotel {
   }
 
   roomsAvailableToday(date) {
-    let findRoomNum = this.bookingsAndServicesForDay(date)
+    let findRoomNum = this.bookingsForDay(date)
       .map((room) => room.roomNumber);
 
     return findRoomNum.reduce((totalRooms, room) => {
@@ -52,7 +56,7 @@ class Hotel {
   }
 
   revenueToday(date) {
-    let findBookedRooms = this.bookingsAndServicesForDay(date)
+    let findBookedRooms = this.bookingsForDay(date)
       .map((room) => room.roomNumber);
 
     let bookingsRevenue = this.rooms.reduce((totalBooked, room) => {
@@ -75,7 +79,7 @@ class Hotel {
   }
 
   roomsPercentOccupiedToday(date) {
-    let bookedRooms = this.bookingsAndServicesForDay(date).length;
+    let bookedRooms = this.bookingsForDay(date).length;
     let findPercentage = (bookedRooms / this.bookings.length) * 100;
     return Number(findPercentage.toFixed(1));
   }

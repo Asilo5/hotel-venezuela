@@ -25,14 +25,14 @@ let rooms = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/room
 let allData = {'users': [], 'rooms': [], 'bookings': [], 'roomServices': []}
 
 Promise.all([users, rooms, bookings, roomServices])
-.then(function(values) {
-  allData['users'] = values[0].users;
-  allData['rooms'] = values[1].rooms;
-  allData['bookings'] = values[2].bookings;
-  allData['roomServices'] = values[3].roomServices;
-  return allData;
-})
-.catch(error => console.log(`Error in promises ${error}`));
+  .then(function(values) {
+    allData['users'] = values[0].users;
+    allData['rooms'] = values[1].rooms;
+    allData['bookings'] = values[2].bookings;
+    allData['roomServices'] = values[3].roomServices;
+    return allData;
+  })
+  .catch(error => console.log(`Error ${error}`));
 
 let hotel;
 let today = domUpdates.findCurrentDate();
@@ -68,13 +68,16 @@ function searchCustomer() {
 }
 
 function appendRooms() {
+  hotel.customer.bookingsFromGuest();
   $('.most-popular-date').html(hotel.popularBookingDateAndRoomsAvailable('max'));
   $('.most-rooms-available').html(hotel.popularBookingDateAndRoomsAvailable('min'));
 }
 
 function appendOrders() {
-  hotel.customer.bookingsFromGuest();
-  
+  $('.room-service-total').html(hotel.customer.overallRoomServiceTotal());
+  $('.money-spent-on-date').html(hotel.customer.totalRoomServiceToday(today));
+  domUpdates.appendServicesForToday(hotel.servicesForDay(today));
+  domUpdates.appendOrdersBreakDown(hotel.customer.roomServiceBreakDown());
 }
 
   
