@@ -40,6 +40,9 @@ let today = domUpdates.findCurrentDate();
 $('.tab-container .tabs li').on('click', function(e) {
   e.preventDefault();
   let panelSelected = e.target.getAttribute('data-id');
+
+  // panelSelected.find('.tabs li.active').removeClass('active');
+  // $(this).addClass('active');
     
   $('.tab-container .panel.active').slideUp(300, function() {
     $('.tab-container .panel.active').removeClass('active');
@@ -56,6 +59,7 @@ setTimeout( () => {
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
   searchCustomer();
   appendRooms();
+  appendOrders();
 }, 500);
 
 function searchCustomer() {
@@ -69,7 +73,8 @@ function appendRooms() {
 }
 
 function appendOrders() {
-
+  hotel.customer.bookingsFromGuest();
+  
 }
 
   
