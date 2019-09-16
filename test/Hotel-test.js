@@ -15,12 +15,31 @@ describe('Hotel', () => {
     expect(Hotel).to.be.a('function');
   })
 
-  it('should show all bookings and services for that date', () => {
-    expect(hotel.bookingsAndServicesForDay('2019/09/30')).to.eql(
+  it('should show all bookings for that date', () => {
+    expect(hotel.bookingsForDay('2019/09/30')).to.eql(
       [
         { userID: 1, date: '2019/09/30', roomNumber: 4 },
         { userID: 5, date: '2019/09/30', roomNumber: 8 },
         { userID: 1, date: '2019/09/30', roomNumber: 18 }
+      ]
+    );
+  })
+
+  it('should show all services for that date', () => {
+    expect(hotel.servicesForDay('2019/09/30')).to.eql(
+      [
+        {
+          userID: 1,
+          date: '2019/09/30',
+          food: 'Rustic Cotton Sandwich',
+          totalCost: 7.33
+        },
+        {
+          userID: 5,
+          date: '2019/09/30',
+          food: 'Handcrafted Rubber Sandwich',
+          totalCost: 22.45
+        }
       ]
     );
   })

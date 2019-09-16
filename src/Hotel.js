@@ -24,8 +24,7 @@ class Hotel {
 
   findExistingGuest(name, hotel) {
     if (this.searchGuestInData(name)) {
-      console.log('USER FOUND');
-      this.customer = new Customer(this.searchGuestInData(name).id, name, hotel)
+      this.customer = new Customer(this.searchGuestInData(name).id, name, hotel);
     } else {
       console.log('USER NOT FOUND')
       domUpdates.userNotFound();

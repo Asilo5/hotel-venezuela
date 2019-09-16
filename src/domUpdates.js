@@ -10,6 +10,12 @@ let domUpdates = {
     return `${year}/${month}/${day}`;
   },
 
+  appendListOfGuests(hotelData) {
+    hotelData.forEach((guest) => {
+      $('.search-for-guest-input').append(`<option value="${guest.name}">${guest.name}</option>`)
+    })
+  }
+
 };
 
 export default domUpdates;

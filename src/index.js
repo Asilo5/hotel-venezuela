@@ -59,16 +59,22 @@ setTimeout( () => {
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
   searchCustomer();
   appendRooms();
-  appendOrders();
 }, 500);
 
 function searchCustomer() {
-  console.log(hotel.findExistingGuest('Winnifred Kris', hotel))
-
+  domUpdates.appendListOfGuests(hotel.users);
 }
 
-function appendRooms() {
+$('.search-for-guest-button').on('click', function(e) {
+  e.preventDefault();
+  let chosenGuest = $('.search-for-guest-input').val();
+  $('h1').text(chosenGuest)
+  hotel.findExistingGuest(chosenGuest, hotel);
   hotel.customer.bookingsFromGuest();
+  appendOrders()
+})
+
+function appendRooms() {
   $('.most-popular-date').html(hotel.popularBookingDateAndRoomsAvailable('max'));
   $('.most-rooms-available').html(hotel.popularBookingDateAndRoomsAvailable('min'));
 }
