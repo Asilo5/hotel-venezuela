@@ -21,7 +21,15 @@ let domUpdates = {
       $('.all-orders-today').append(`
       Date: ${service.date} Food: ${service.food} Cost: $ ${service.totalCost}`)
     })
-  }
+  },
+
+  appendOrdersBreakDown(orders) {
+    orders.forEach((order) => {
+      $('.room-service-breakdown').append(`
+        <p> Date: ${order.date} Food: ${order.food} Cost: $ ${order.totalCost} </p>`)
+    })
+  },
+
 
 };
 
