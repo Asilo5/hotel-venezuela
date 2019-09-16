@@ -5,7 +5,7 @@ import Hotel from '../src/Hotel';
 import sampleData from '../src/sample-data/all-sample-data'
 
 describe('Hotel', () => {
-  let hotel;
+  let hotel; 
 
   beforeEach(() => {
     hotel = new Hotel(sampleData);
@@ -16,7 +16,7 @@ describe('Hotel', () => {
   })
 
   it('should show all bookings and services for that date', () => {
-    expect(hotel.bookingsAndServicesForDay('2019/09/30', 'bookings')).to.eql(
+    expect(hotel.bookingsAndServicesForDay('2019/09/30')).to.eql(
       [
         { userID: 1, date: '2019/09/30', roomNumber: 4 },
         { userID: 5, date: '2019/09/30', roomNumber: 8 },
@@ -26,7 +26,7 @@ describe('Hotel', () => {
   })
 
   it('should use the name of the guest to find the ID', () => {
-    expect(hotel.searchGuestInData('Winnifred Kris', 'users')).to.eql({ id: 6, name: 'Winnifred Kris' });
+    expect(hotel.searchGuestInData('Winnifred Kris')).to.eql({ id: 6, name: 'Winnifred Kris' });
   })
 
   it('should find existing guest', () => {
