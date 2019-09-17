@@ -7,20 +7,24 @@ class Hotel {
     this.rooms = data.rooms;
     this.bookings = data.bookings;
     this.roomServices = data.roomServices;
+    this.customer;
   }
 
-  bookingsAndServicesForDay(date, hotelData) {
-    return this[hotelData].filter((booking) => booking.date === date);
+  bookingsForDay(date) {
+    return this.bookings.filter((booking) => booking.date === date);
   }
 
-  searchGuestInData(name, hotelData) {
-    return this[hotelData].find((guest) => guest.name === name);
+  servicesForDay(date) {
+    return this.roomServices.filter((services) => services.date === date);
   }
 
-  findExistingGuest(name) {
-    if (this.searchGuestInData(name, 'users')) {
-      console.log('USER FOUND');
-      let customer = new Customer(name, this.searchGuestInData(name, 'users').id)
+  searchGuestInData(name) {
+    return this.users.find((guest) => guest.name === name);
+  }
+
+  findExistingGuest(name, hotel) {
+    if (this.searchGuestInData(name)) {
+      this.customer = new Customer(this.searchGuestInData(name).id, name, hotel);
     } else {
       console.log('USER NOT FOUND')
       domUpdates.userNotFound();
@@ -37,7 +41,7 @@ class Hotel {
   }
 
   roomsAvailableToday(date) {
-    let findRoomNum = this.bookingsAndServicesForDay(date, 'bookings')
+    let findRoomNum = this.bookingsForDay(date)
       .map((room) => room.roomNumber);
 
     return findRoomNum.reduce((totalRooms, room) => {
@@ -47,11 +51,11 @@ class Hotel {
         }
       })
       return totalRooms;
-    }, [])
+    }, []);
   }
 
   revenueToday(date) {
-    let findBookedRooms = this.bookingsAndServicesForDay(date, 'bookings')
+    let findBookedRooms = this.bookingsForDay(date)
       .map((room) => room.roomNumber);
 
     let bookingsRevenue = this.rooms.reduce((totalBooked, room) => {
@@ -74,7 +78,7 @@ class Hotel {
   }
 
   roomsPercentOccupiedToday(date) {
-    let bookedRooms = this.bookingsAndServicesForDay(date, 'bookings').length;
+    let bookedRooms = this.bookingsForDay(date).length;
     let findPercentage = (bookedRooms / this.bookings.length) * 100;
     return Number(findPercentage.toFixed(1));
   }

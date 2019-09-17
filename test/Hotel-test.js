@@ -5,7 +5,7 @@ import Hotel from '../src/Hotel';
 import sampleData from '../src/sample-data/all-sample-data'
 
 describe('Hotel', () => {
-  let hotel;
+  let hotel; 
 
   beforeEach(() => {
     hotel = new Hotel(sampleData);
@@ -15,8 +15,8 @@ describe('Hotel', () => {
     expect(Hotel).to.be.a('function');
   })
 
-  it('should show all bookings and services for that date', () => {
-    expect(hotel.bookingsAndServicesForDay('2019/09/30', 'bookings')).to.eql(
+  it('should show all bookings for that date', () => {
+    expect(hotel.bookingsForDay('2019/09/30')).to.eql(
       [
         { userID: 1, date: '2019/09/30', roomNumber: 4 },
         { userID: 5, date: '2019/09/30', roomNumber: 8 },
@@ -25,8 +25,27 @@ describe('Hotel', () => {
     );
   })
 
+  it('should show all services for that date', () => {
+    expect(hotel.servicesForDay('2019/09/30')).to.eql(
+      [
+        {
+          userID: 1,
+          date: '2019/09/30',
+          food: 'Rustic Cotton Sandwich',
+          totalCost: 7.33
+        },
+        {
+          userID: 5,
+          date: '2019/09/30',
+          food: 'Handcrafted Rubber Sandwich',
+          totalCost: 22.45
+        }
+      ]
+    );
+  })
+
   it('should use the name of the guest to find the ID', () => {
-    expect(hotel.searchGuestInData('Winnifred Kris', 'users')).to.eql({ id: 6, name: 'Winnifred Kris' });
+    expect(hotel.searchGuestInData('Winnifred Kris')).to.eql({ id: 6, name: 'Winnifred Kris' });
   })
 
   it('should find existing guest', () => {
@@ -88,7 +107,8 @@ describe('Hotel', () => {
       '2019/09/22': 2,
       '2019/09/06': 1,
       '2019/09/24': 1,
-      '2019/09/01': 1
+      '2019/09/01': 1,
+      '2019/09/14': 1
     });
   })
 
@@ -100,7 +120,7 @@ describe('Hotel', () => {
     expect(hotel.popularBookingDateAndRoomsAvailable('min')).to.equal('2019/09/13');
   })
 
-  it.only('should filter rooms by type', () => {
+  it('should filter rooms by type', () => {
     expect(hotel.filterRoomsByType('suite')).to.eql([
       {
         number: 3,

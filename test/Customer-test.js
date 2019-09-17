@@ -2,13 +2,15 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Customer from '../src/Customer';
+import Hotel from '../src/Hotel';
 import sampleData from '../src/sample-data/all-sample-data'
 
 describe('Customer', () => {
-  let customer;
+  let customer, hotel;
 
-  beforeEach(() => {
-    customer = new Customer(sampleData);
+  beforeEach(() => { 
+    hotel = new Hotel(sampleData);
+    customer = new Customer(6, 'Winnifred Kris', hotel);
   });
 
   it('should be a function', () => {
@@ -16,15 +18,40 @@ describe('Customer', () => {
   })
 
   it('should return brokendown services from guest', () => {
-    expect(customer.roomServiceBreakDown(name)).to.eql();
+    expect(customer.roomServiceBreakDown()).to.eql([
+      {
+        userID: 6,
+        date: '2019/09/23',
+        food: 'Tasty Granite Sandwich',
+        totalCost: 18.73
+      },
+      {
+        userID: 6,
+        date: '2019/09/21',
+        food: 'Refined Cotton Sandwich',
+        totalCost: 13.45
+      },
+      {
+        userID: 6,
+        date: '2019/9/23',
+        food: 'Refined Cotton Sandwich',
+        totalCost: 8.68
+      },
+      {
+        userID: 6,
+        date: '2019/09/14',
+        food: 'Rustic Cotton Sandwich',
+        totalCost: 7.33
+      }
+    ]);
   })
 
   it('should return total of all room service for today', () => {
-    expect(customer.totalRoomServiceToday(name, date)).to.eql();
+    expect(customer.totalRoomServiceToday('2019/09/21')).to.equal(13.45);
   })
 
   it('should return overall room service total', () => {
-    expect(customer.overallRoomServiceTotal(name)).to.equal(0);
+    expect(customer.overallRoomServiceTotal()).to.equal(48.19);
   })
 
   it('should instantiate new class of bookings', () => {

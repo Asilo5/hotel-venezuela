@@ -1,27 +1,47 @@
+import domUpdates from "./domUpdates";
+
 class Booking {
-  constructor(id, name) {
+  constructor(id, name, hotel) {
     this.id = id;
     this.name = name;
+    this.hotel = hotel;
   }
 
-  bookRoom(name, date) {
+  bookRoom(chosenDate, roomNum) {
+    let bookedRoom = {
+      userID: this.id,
+      date: chosenDate,
+      roomNumber: roomNum
+    };
+    this.hotel.bookings.push(bookedRoom);
+    return this.hotel.bookings[this.hotel.bookings.length - 1];
+  }
+
+  unbookRoom(date, roomNum) {
+    // chai spy on this
+    let findIndexBooking = this.hotel.bookings.findIndex((booking) => booking.date === date && booking.roomNumber === roomNum);
+    return this.hotel.bookings.splice(findIndexBooking, 1);
+  }
+
+  purchaseRoomService(chosenDate, foodWanted) {
+    let newService = {
+      userID: this.id,
+      date: chosenDate,
+      food: foodWanted,
+      totalCost: this.hotel.roomServices.find((service) => service.food === foodWanted).totalCost
+    }
+    this.hotel.roomServices.push(newService);
+    return this.hotel.roomServices[this.hotel.roomServices.length - 1];
 
   }
 
-  unbookRoom(name, date) {
-
+  upgradeRoom(date, roomNum, upgradedRoom) {
+    this.unbookRoom(date, roomNum);
+    return this.bookRoom(date, upgradedRoom);
   }
 
-  purchaseRoomService(name, date) {
-
-  }
-
-  upgradeRoom(name) {
-
-  }
-
-  summaryOfGuestBookings(name) {
-
+  summaryOfGuestBookings() {
+    return this.hotel.bookings.filter((guest) => guest.userID === this.id);
   }
 
 }
