@@ -198,6 +198,8 @@ h1 {
 
 .orders {
   @extend .bookings;
+  overflow: scroll;
+  max-height: 28em;
   .orders-input {
     font-size: 30px;
     border: none;
@@ -219,7 +221,8 @@ h1 {
   overflow: scroll;
 }
 
-.show-rooms-container {
+.show-rooms-container, 
+.food-menu-container {
   @extend .guest-bookings;
   max-height: 233px;
 }

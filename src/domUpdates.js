@@ -62,6 +62,24 @@ let domUpdates = {
         <td><button class='book-button' type="button" data-id="${booking.number}">Book</button></td>
     </tr>`)
     })
+  },
+
+  appendFoodMenu(menu) {
+    $('.food-menu').append(`
+       <tr>
+         <th> Food </th>
+         <th> Price </th>
+       </tr>
+    `)
+    menu.forEach((theFood) => {
+      $('.food-menu').append(`
+        <tr>
+          <td> ${theFood.food} </td>
+          <td> ${theFood.cost} </td>
+          <td><button class='buy-food-button'data-id="${theFood.food}">Buy</button> </td>
+        </tr>
+      `)
+    })
   }
 };
 

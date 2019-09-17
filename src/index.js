@@ -64,6 +64,7 @@ setTimeout( () => {
 
 $('.guest-bookings').hide();
 $('.guest-orders').hide();
+$('.food-menu-container').hide();
 
 
 $('.search-for-guest-button').on('click', function(e) {
@@ -71,11 +72,10 @@ $('.search-for-guest-button').on('click', function(e) {
   let chosenGuest = $('.search-for-guest-input').val();
   guestInput(chosenGuest);
   appendOrders();
-  // show everything from guest
   $('.guest-bookings').show();
   $('.guest-orders').show();
+  $('.food-menu-container').show();
   
-  // hide default
   $('.default-guest').hide();
   $('.default-bookings').hide();
   $('.default-orders').hide();
@@ -105,7 +105,8 @@ function appendOrders() {
   $('.room-service-total').html(hotel.customer.overallRoomServiceTotal());
   $('.money-spent-on-date').html(hotel.customer.totalRoomServiceToday(today));
   domUpdates.appendOrdersBreakDown(hotel.customer.roomServiceBreakDown());
-  domUpdates.appendGuestBookings(hotel.customer.bookings.summaryOfGuestBookings())
+  domUpdates.appendGuestBookings(hotel.customer.bookings.summaryOfGuestBookings());
+  domUpdates.appendFoodMenu(hotel.foodMenu());
 }
 
 $('.back-to-default').on('click', function() {

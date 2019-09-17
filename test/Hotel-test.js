@@ -173,7 +173,7 @@ describe('Hotel', () => {
     ]);
   })
 
-  it.only('should return food menu', () => {
+  it('should return food menu', () => {
     expect(hotel.foodMenu()).to.eql([
       { food: 'Practical Concrete Sandwich', cost: 13.55 },
       { food: 'Rustic Cotton Sandwich', cost: 7.33 },
