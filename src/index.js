@@ -67,7 +67,7 @@ $('.guest-orders').hide();
 $('.food-menu-container').hide();
 
 
-$('.search-for-guest-button').on('click', function(e) {
+$('.search-for-guest-button').unbind().on('click', function(e) {
   e.preventDefault();
   let chosenGuest = $('.search-for-guest-input').val();
   guestInput(chosenGuest);
@@ -81,7 +81,7 @@ $('.search-for-guest-button').on('click', function(e) {
   $('.default-orders').hide();
 })
 
-$('.add-guest-button').on('click', function(e) {
+$('.add-guest-button').unbind().on('click', function(e) {
   e.preventDefault();
   let newGuest = $('.add-guest-input').val();
   hotel.addGuest(newGuest);
@@ -92,7 +92,6 @@ $('.add-guest-button').on('click', function(e) {
 function guestInput(chosenGuest) {
   $('h1').text(chosenGuest);
   hotel.findExistingGuest(chosenGuest, hotel);
-  appendOrders();
 }
 
 function appendRooms() {
@@ -113,7 +112,7 @@ $('.back-to-default').on('click', function() {
   location.reload(true);
 })
 
-$('.rooms-input-button').on('click', function(e) {
+$('.rooms-input-button').unbind().on('click', function(e) {
   e.preventDefault();
   let chosenDate = $('.rooms-input').val();
   let formattedDate = chosenDate.replace(/-/gi, "/");
