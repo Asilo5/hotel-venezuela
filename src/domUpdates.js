@@ -39,8 +39,10 @@ let domUpdates = {
     })
   },
 
-  appendHotelBookings(bookings) {
-    $('.show-rooms-container').append(`<tr>
+  appendHotelBookings(bookings, date) {
+    $('.show-rooms-container').append(`
+      <h3> ${date} </h3>
+    <tr>
        <th>Room #</th>
        <th>Room Type</th>
        <th>Bed Size</th>
@@ -51,13 +53,13 @@ let domUpdates = {
     bookings.forEach((booking) => {
       $('.show-rooms-container').append(`
       <tr>
-      <td>${booking.number}</td>
-      <td>${booking.roomType}</td>
-      <td>${booking.bedSize}</td>
-      <td>${booking.numBeds}</td>
-      <td>${booking.bidet ? 'Yes' : 'No'}</td>
-      <td>${'$' + booking.costPerNight}</td>
-      <td><button class='book-button' type="button" data-id="${booking.number}">Book</button></td>
+        <td>${booking.number}</td>
+        <td>${booking.roomType}</td>
+        <td>${booking.bedSize}</td>
+        <td>${booking.numBeds}</td>
+        <td>${booking.bidet ? 'Yes' : 'No'}</td>
+        <td>${'$' + booking.costPerNight}</td>
+        <td><button class='book-button' type="button" data-id="${booking.number}">Book</button></td>
     </tr>`)
     })
   }
