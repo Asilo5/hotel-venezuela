@@ -4,6 +4,9 @@
 $primary-background: pink;
 $primary-fonts: 'Roboto', sans-serif;
 $regular-fonts: 'Manjari', sans-serif;
+$tab-colour: #989c8ef0;
+$inactive-tab-colour: #c9ad86ed;
+$tab-font-colour: #fff;
 
 body {
   font-family: $primary-fonts;
@@ -20,29 +23,29 @@ body {
   li {
     list-style-type: none;
     display: inline-block;
-    background: #999;
+    background: $inactive-tab-colour;
     margin: 0;
     padding: 11px 40px;
     border-radius: 10px 10px 0 0;
-    color: #fff;
+    color: $tab-font-colour;
     font-weight: 200;
     cursor: pointer;
     font-size: 30px;
     &:hover {
-      color: #fff;
-      background: #f1c40f;
+      color: $tab-font-colour;
+      background: $tab-colour;
     }
   }
 }
 
 .tab-container ul li.active {
-  color: #fff;
-  background: #f1c40f;
+  color: $tab-font-colour;
+  background: $tab-colour;
 }
 
 .tab-container .panel {
   display: none;
-  background: #c9c9c9;
+  background: $tab-colour;
   padding: 30px;
   border-radius: 0 0 10px 10px;
 }
@@ -76,4 +79,18 @@ main {
 h1 {
   font-size: 2em;
   padding: 20px;
+}
+
+.hotel-main-tab {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-tab .button {
+  margin: auto;
+  display: block;
+  font-size: 2em;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
 }
