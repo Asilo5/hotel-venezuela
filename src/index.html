@@ -23,11 +23,11 @@
           <section id="panel1" class="panel active main">
             <section class='main-tab'>
               <div class='hotel-main-tab'>
-                <div class='revenue-container'>
+                <div class='revenue-container info-container'>
                   <p>Revenue Today:</p>
                   <p>$<span class='revenue-today'></span></p>
                 </div>
-                <div class='rooms-occupied-container'>
+                <div class='rooms-occupied-container info-container'>
                   <p>Rooms Occupied Today:</p>
                   <p><span class='rooms-occupied-today'></span>%</p>
                 </div>
@@ -38,7 +38,7 @@
   
           <section id="panel2" class="panel">
             <section class='guest'>
-              <div class='search-guest'>
+              <div class='search-guest info-container'>
                 <h2>Search Customer</h2>
                  <form class="search-guest-form">
                    <select class='search-for-guest-input' name="guests">
@@ -46,15 +46,12 @@
                    <button class="search-for-guest-button"> Search </button>
                  </form>
               </div>
-              <div class='default-guest'>
+              <div class='default-guest info-container'>
                 <h2> Add Customer</h2>
                  <form class="add-guest-form">
                     <input class='add-guest-input' type="text" placeholder="Add Guests Name">
                     <button class="add-guest-button"> Add </button>
                   </form>
-              </div>
-              <div class='guest-info'>
-                
               </div>
             </section>
           </section>
@@ -66,19 +63,19 @@
                   <input class='rooms-input' type="date">
                   <button>Search</button>
                 </form>
-                <div class="show-rooms-container"></div>
+                <div class="show-rooms-container info-container"></div>
               </div>
               <div class='default-bookings'>
-                <div class="most-popular-section">
+                <div class="most-popular-section info-container">
                   <p> Most Popular Booking Date: </p>
                   <p class="most-popular-date"></p>
                 </div>
-                <div class="most-rooms-section">
+                <div class="most-rooms-section info-container">
                   <p> Date With Most Rooms Available: </p>
                   <p class="most-rooms-available"></p>
                 </div>
               </div>
-              <div class="guest-bookings">
+              <div class="guest-bookings info-container">
                 <p>Guests Booking Summary: </p>
                 <div class="bookings-summary"></div>
               </div>
@@ -91,22 +88,22 @@
                 <input class='orders-input' type="date">
                 <button>Search</button>
               </form>
-              <div class='default-orders'>
+              <div class='default-orders info-container'>
                 <div class='all-orders-container'>
                   <p>Orders for Today:</p>
                   <div class='all-orders-today'></div>
                 </div>
               </div>
               <div class="guest-orders">
-                  <div class="room-service-breakdown-container">
+                  <div class="room-service-breakdown-container info-container">
                     <p> Room Service Breakdown: </p>
                     <div class='room-service-breakdown'></div>
                   </div>
-                  <div class="total-spent-ever-container">
+                  <div class="total-spent-ever-container info-container">
                     <p> Room Service Overall Total:</p>
                     <p>$<span class="room-service-total"></span></p>
                   </div>
-                  <div class="money-spent-on-date-container">
+                  <div class="money-spent-on-date-container info-container">
                      <p>Money Spent on Today: </p>
                      <p>$<span class='money-spent-on-date'></span></p>
                   </div>
