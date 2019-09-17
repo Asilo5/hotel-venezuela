@@ -90,7 +90,7 @@ function guestInput(chosenGuest) {
 function appendRooms() {
   $('.most-popular-date').html(hotel.popularBookingDateAndRoomsAvailable('max'));
   $('.most-rooms-available').html(hotel.popularBookingDateAndRoomsAvailable('min'));
-  domUpdates.appendHotelBookings(hotel.roomsAvailableToday(today));
+  // domUpdates.appendHotelBookings(hotel.roomsAvailableToday(today));
 }
 
 function appendOrders() {
@@ -103,6 +103,13 @@ function appendOrders() {
 
 $('.back-to-default').on('click', function() {
   location.reload(true);
+})
+
+$('.rooms-input-button').on('click', function(e) {
+  e.preventDefault();
+  let chosenDate = $('.rooms-input').val();
+  let formattedDate = chosenDate.replace(/-/gi, "/");
+  domUpdates.appendHotelBookings(hotel.roomsAvailableToday(formattedDate));
 })
 
 
