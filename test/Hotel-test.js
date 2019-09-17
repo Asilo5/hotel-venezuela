@@ -173,4 +173,23 @@ describe('Hotel', () => {
     ]);
   })
 
+  it.only('should return food menu', () => {
+    expect(hotel.foodMenu()).to.eql([
+      { food: 'Practical Concrete Sandwich', cost: 13.55 },
+      { food: 'Rustic Cotton Sandwich', cost: 7.33 },
+      { food: 'Tasty Wooden Sandwich', cost: 17.31 },
+      { food: 'Practical Granite Sandwich', cost: 14.87 },
+      { food: 'Fantastic Cotton Sandwich', cost: 17.61 },
+      { food: 'Awesome Cotton Sandwich', cost: 20.79 },
+      { food: 'Refined Metal Sandwich', cost: 19.3 },
+      { food: 'Incredible Concrete Sandwich', cost: 24.77 },
+      { food: 'Unbranded Wooden Sandwich', cost: 7.95 },
+      { food: 'Intelligent Fresh Sandwich', cost: 12.32 },
+      { food: 'Handcrafted Rubber Sandwich', cost: 22.45 },
+      { food: 'Tasty Granite Sandwich', cost: 18.73 },
+      { food: 'Refined Cotton Sandwich', cost: 13.45 },
+      { food: 'Handcrafted Metal Sandwich', cost: 13.98 }
+    ]);
+  })
+
 })
