@@ -90,6 +90,7 @@ function guestInput(chosenGuest) {
 function appendRooms() {
   $('.most-popular-date').html(hotel.popularBookingDateAndRoomsAvailable('max'));
   $('.most-rooms-available').html(hotel.popularBookingDateAndRoomsAvailable('min'));
+  domUpdates.appendHotelBookings(hotel.roomsAvailableToday(today));
 }
 
 function appendOrders() {

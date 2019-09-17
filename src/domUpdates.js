@@ -32,8 +32,33 @@ let domUpdates = {
   
   appendGuestBookings(booking) {
     booking.forEach((room) => {
-      $('.bookings-summary').append(`
-      <p class='appended-bookings'> Date: ${room.date} Room: ${room.roomNumber} </p>`)
+      $('.bookings-summary').append(`<tr>
+    <td> Date: ${room.date} in Room: ${room.roomNumber} </td>
+    <td><button type="button" data-id="${room.date}">Delete</button></td>
+    </tr>)`)
+    })
+  },
+
+  appendHotelBookings(bookings) {
+    $('.show-rooms-container').append(`<tr>
+       <th>Room #</th>
+       <th>Room Type</th>
+       <th>Bed Size</th>
+       <th>Number of Beds</th>
+      <th>Bidet</th>
+      <th>Cost per Night</th>
+     </tr>`)
+    bookings.forEach((booking) => {
+      $('.show-rooms-container').append(`
+      <tr>
+      <td>${booking.number}</td>
+      <td>${booking.roomType}</td>
+      <td>${booking.bedSize}</td>
+      <td>${booking.numBeds}</td>
+      <td>${booking.bidet ? 'Yes' : 'No'}</td>
+      <td>${'$' + booking.costPerNight}</td>
+      <td><button class='book-button' type="button" data-id="${booking.number}">Book</button></td>
+    </tr>`)
     })
   }
 };

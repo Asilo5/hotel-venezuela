@@ -33,7 +33,7 @@ h1 {
   background: $tab-colour;
   display: block;
   margin: auto;
-  margin-top: 1em;
+  margin-top: 40px;
   border-radius: 4px;
   font-family: 'Satisfy', cursive;
 }
@@ -217,6 +217,11 @@ h1 {
 .guest-bookings {
   max-height: 16em;
   overflow: scroll;
+}
+
+.show-rooms-container {
+  @extend .guest-bookings;
+  max-height: 233px;
 }
 
 
