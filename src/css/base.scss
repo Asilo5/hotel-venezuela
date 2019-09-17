@@ -211,6 +211,12 @@ h1 {
 
 .info-container {
   border: 1px solid black;
+  border-radius: 4px;
+}
+
+.guest-bookings {
+  max-height: 16em;
+  overflow: scroll;
 }
 
 

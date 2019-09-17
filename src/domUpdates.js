@@ -19,18 +19,23 @@ let domUpdates = {
   appendServicesForToday(services) {
     services.forEach((service) => {
       $('.all-orders-today').append(`
-      Date: ${service.date} Food: ${service.food} Cost: $ ${service.totalCost}`)
+      <p class='appended-orders-today'> Date: ${service.date} Food: ${service.food} Cost: $ ${service.totalCost} </p>`)
     })
   },
 
   appendOrdersBreakDown(orders) {
     orders.forEach((order) => {
       $('.room-service-breakdown').append(`
-        <p> Date: ${order.date} Food: ${order.food} Cost: $ ${order.totalCost} </p>`)
+        <p class='appended-orders-breakdown'> Date: ${order.date} Food: ${order.food} Cost: $ ${order.totalCost} </p>`)
     })
   },
-
-
+  
+  appendGuestBookings(booking) {
+    booking.forEach((room) => {
+      $('.bookings-summary').append(`
+      <p class='appended-bookings'> Date: ${room.date} Room: ${room.roomNumber} </p>`)
+    })
+  }
 };
 
 export default domUpdates;

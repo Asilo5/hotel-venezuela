@@ -84,7 +84,6 @@ $('.add-guest-button').on('click', function(e) {
 function guestInput(chosenGuest) {
   $('h1').text(chosenGuest);
   hotel.findExistingGuest(chosenGuest, hotel);
-  hotel.customer.bookingsFromGuest();
   appendOrders();
 }
 
@@ -94,14 +93,17 @@ function appendRooms() {
 }
 
 function appendOrders() {
+  hotel.customer.bookingsFromGuest();
   $('.room-service-total').html(hotel.customer.overallRoomServiceTotal());
   $('.money-spent-on-date').html(hotel.customer.totalRoomServiceToday(today));
   domUpdates.appendOrdersBreakDown(hotel.customer.roomServiceBreakDown());
+  domUpdates.appendGuestBookings(hotel.customer.bookings.summaryOfGuestBookings())
 }
 
 $('.back-to-default').on('click', function() {
   location.reload(true);
 })
+
 
 
   
