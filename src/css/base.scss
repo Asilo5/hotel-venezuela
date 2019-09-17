@@ -29,7 +29,7 @@ h1 {
   padding: 20px;
   text-align: center;
   color: $tab-font-colour;
-  width: 77%;
+  width: 61%;
   background: $tab-colour;
   display: block;
   margin: auto;
@@ -90,7 +90,7 @@ h1 {
   div {
     text-align: center;
     font-size: 30px;
-    padding: 30px;
+    margin: 30px;
   }
   .hotel-main-tab {
     display: flex;
@@ -161,4 +161,52 @@ h1 {
     }
   }
 }
+
+.bookings {
+   display: flex;
+    flex-direction: column;
+    text-align: center;
+  .default-bookings {
+    display: flex;
+    justify-content: space-around;
+  }
+  div {
+    margin: 20px;
+   p {
+     font-size: 29px;
+     margin: 20px;
+   }
+  }
+  .rooms-input {
+    font-size: 30px;
+    border: none;
+    height: 36px;
+    border-radius: 4px;
+  }
+  button {
+    font-size: 30px;
+    border: none;
+    border-radius: 5px;
+    background: $inactive-tab-colour;
+  &:hover {
+    color: $tab-font-colour;
+    background: $button-hover-color;
+    box-shadow: 5px 10px $button-shadow;
+  }
+  }
+}
+
+.orders {
+  @extend .bookings;
+  .orders-input {
+    font-size: 30px;
+    border: none;
+    height: 36px;
+    border-radius: 4px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
 
