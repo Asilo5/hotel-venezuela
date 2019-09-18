@@ -1,4 +1,3 @@
-console.log('This is the JavaScript entry file - your code begins here.');
 
 import $ from 'jquery';
 import domUpdates from "./domUpdates";
@@ -59,8 +58,8 @@ setTimeout( () => {
 
 setTimeout( () => {
   $('.splash-page').hide();
-  $('header').fadeIn();
-  $('main').fadeIn();
+  $('header').fadeIn(400);
+  $('main').fadeIn(800);
   hotel = new Hotel(allData);
   $('.revenue-today').html(hotel.revenueToday(today));
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
