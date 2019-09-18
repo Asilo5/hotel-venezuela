@@ -103,6 +103,22 @@ class Hotel {
     return this.rooms.filter((room) => room.roomType === type);
   }
 
+  foodMenu() {
+    let allRoomService = this.roomServices.reduce((totalMenu, service) => {
+      if (!totalMenu[service.food]) {
+        totalMenu[service.food] = service.totalCost
+      }
+      return totalMenu; 
+    }, {});
+
+    return Object.keys(allRoomService).map((service) => {
+      return {
+        food: service,
+        cost: allRoomService[service]
+      }
+    })
+  }
+
 }
 
 export default Hotel;

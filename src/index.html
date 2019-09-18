@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed|Roboto|Satisfy&display=swap" rel="stylesheet">
   </head> 
   <body>
+    <section class="splash-page">🇻🇪</section>
     <header>
       <h1>Hotel Venezuela</h1>
     </header>
@@ -23,12 +24,12 @@
           <section id="panel1" class="panel active main">
             <section class='main-tab'>
               <div class='hotel-main-tab'>
-                <div class='revenue-container'>
-                  <p>Revenue Today:</p>
+                <div class='revenue-container info-container'>
+                  <h2>Revenue Today:</h2>
                   <p>$<span class='revenue-today'></span></p>
                 </div>
-                <div class='rooms-occupied-container'>
-                  <p>Rooms Occupied Today:</p>
+                <div class='rooms-occupied-container info-container'>
+                  <h2>Rooms Occupied Today:</h2>
                   <p><span class='rooms-occupied-today'></span>%</p>
                 </div>
               </div>
@@ -38,7 +39,7 @@
   
           <section id="panel2" class="panel">
             <section class='guest'>
-              <div class='search-guest'>
+              <div class='search-guest info-container'>
                 <h2>Search Customer</h2>
                  <form class="search-guest-form">
                    <select class='search-for-guest-input' name="guests">
@@ -46,15 +47,12 @@
                    <button class="search-for-guest-button"> Search </button>
                  </form>
               </div>
-              <div class='default-guest'>
+              <div class='default-guest info-container'>
                 <h2> Add Customer</h2>
                  <form class="add-guest-form">
                     <input class='add-guest-input' type="text" placeholder="Add Guests Name">
                     <button class="add-guest-button"> Add </button>
                   </form>
-              </div>
-              <div class='guest-info'>
-                
               </div>
             </section>
           </section>
@@ -64,22 +62,23 @@
               <div class='search-rooms-section'>
                 <form>
                   <input class='rooms-input' type="date">
-                  <button>Search</button>
+                  <button class='rooms-input-button'>Search</button>
                 </form>
-                <div class="show-rooms-container"></div>
+                <div class="show-rooms-container info-container"></div>
               </div>
               <div class='default-bookings'>
-                <div class="most-popular-section">
-                  <p> Most Popular Booking Date: </p>
+                <div class="most-popular-section info-container">
+                  <h2> Most Popular Booking Date: </h2>
                   <p class="most-popular-date"></p>
                 </div>
-                <div class="most-rooms-section">
-                  <p> Date With Most Rooms Available: </p>
+                <div class="most-rooms-section info-container">
+                  <h2> Date With Most Rooms Available: </h2>
                   <p class="most-rooms-available"></p>
                 </div>
               </div>
-              <div class="guest-bookings">
-                <p>Guests Booking Summary: </p>
+              <div class="guest-bookings info-container">
+                <h2>Guests Booking Summary: </h2>
+                <h4 class='room-booked'></h4>
                 <div class="bookings-summary"></div>
               </div>
             </section>
@@ -91,23 +90,27 @@
                 <input class='orders-input' type="date">
                 <button>Search</button>
               </form>
-              <div class='default-orders'>
+              <div class='default-orders info-container'>
                 <div class='all-orders-container'>
-                  <p>Orders for Today:</p>
+                  <h2>Orders for Today:</h2>
                   <div class='all-orders-today'></div>
                 </div>
               </div>
+              <div class='food-menu-container info-container'>
+                <h2>Food Menu</h2>
+                <div class='food-menu'></div>
+              </div>
               <div class="guest-orders">
-                  <div class="room-service-breakdown-container">
-                    <p> Room Service Breakdown: </p>
+                  <div class="room-service-breakdown-container info-container">
+                    <h2> Room Service Breakdown: </h2>
                     <div class='room-service-breakdown'></div>
                   </div>
-                  <div class="total-spent-ever-container">
-                    <p> Room Service Overall Total:</p>
+                  <div class="total-spent-ever-container info-container">
+                    <h2> Room Service Overall Total:</h2>
                     <p>$<span class="room-service-total"></span></p>
                   </div>
-                  <div class="money-spent-on-date-container">
-                     <p>Money Spent on Today: </p>
+                  <div class="money-spent-on-date-container info-container">
+                     <h2>Money Spent on Chosen Date: </h2>
                      <p>$<span class='money-spent-on-date'></span></p>
                   </div>
               </div>

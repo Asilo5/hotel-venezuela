@@ -19,18 +19,77 @@ let domUpdates = {
   appendServicesForToday(services) {
     services.forEach((service) => {
       $('.all-orders-today').append(`
-      Date: ${service.date} Food: ${service.food} Cost: $ ${service.totalCost}`)
+      <p class='appended-orders-today'> Date: ${service.date} Food: ${service.food} Cost: $ ${service.totalCost} </p>`)
     })
   },
 
   appendOrdersBreakDown(orders) {
     orders.forEach((order) => {
       $('.room-service-breakdown').append(`
-        <p> Date: ${order.date} Food: ${order.food} Cost: $ ${order.totalCost} </p>`)
+        <p class='appended-orders-breakdown'> Date: ${order.date} Food: ${order.food} Cost: $ ${order.totalCost} </p>`)
+    })
+  },
+  
+  appendGuestBookings(booking) {
+    booking.forEach((room) => {
+      $('.bookings-summary').append(`<tr>
+    <td> Date: ${room.date} in Room: ${room.roomNumber}  <button type="button" data-id="${room.date}">Delete</button></td>
+    </tr>)`)
     })
   },
 
+  bookARoom(bookTheRoom) {
+    $('.bookings-summary').append(`<tr>
+    <td> Date: ${bookTheRoom.date} in Room: ${bookTheRoom.roomNumber} <button type="button" data-id="${bookTheRoom.date}">Delete</button></td>
+    </tr>)`)
+  },
 
+  appendHotelBookings(bookings, date) {
+    $('.show-rooms-container').append(`
+      <h3> ${date} </h3>
+    <tr>
+       <th>Room #</th>
+       <th>Room Type</th>
+       <th>Bed Size</th>
+       <th>Number of Beds</th>
+       <th>Bidet</th>
+       <th>Cost per Night</th>
+     </tr>`)
+    bookings.forEach((booking) => {
+      $('.show-rooms-container').append(`
+      <tr>
+        <td>${booking.number}</td>
+        <td>${booking.roomType}</td>
+        <td>${booking.bedSize}</td>
+        <td>${booking.numBeds}</td>
+        <td>${booking.bidet ? 'Yes' : 'No'}</td>
+        <td>${'$' + booking.costPerNight}</td>
+        <td><button class='book-button' type="button" data-id="${booking.number}">Book</button></td>
+    </tr>`)
+    })
+  },
+
+  appendFoodMenu(menu) {
+    $('.food-menu').append(`
+       <tr>
+         <th> Food </th>
+         <th> Price </th>
+       </tr>
+    `)
+    menu.forEach((theFood) => {
+      $('.food-menu').append(`
+        <tr>
+          <td> ${theFood.food} </td>
+          <td> ${theFood.cost} </td>
+          <td><button class='buy-food-button'data-id="${theFood.food}">Buy</button> </td>
+        </tr>
+      `)
+    })
+  },
+
+  roomBooked(room, name) {
+    $('.room-booked').append(`ROOM ${room} HAS BEEN BOOKED FOR ${name}!`)
+  }
 };
 
 export default domUpdates;
