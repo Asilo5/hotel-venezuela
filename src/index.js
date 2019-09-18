@@ -70,7 +70,30 @@ $('.food-menu-container').hide();
 $('.search-for-guest-button').unbind().on('click', function(e) {
   e.preventDefault();
   let chosenGuest = $('.search-for-guest-input').val();
-  guestInput(chosenGuest);
+  // appendOrders();
+  // $('.guest-bookings').show();
+  // $('.guest-orders').show();
+  // $('.food-menu-container').show();
+  
+  // $('.default-guest').hide();
+  // $('.default-bookings').hide();
+  // $('.default-orders').hide();
+  guestInfo(chosenGuest);
+})
+
+$('.add-guest-button').unbind().on('click', function(e) {
+  e.preventDefault();
+  let newGuest = $('.add-guest-input').val();
+  // hotel.addGuest(newGuest);
+  // $('h1').text(newGuest);
+  // hotel.findExistingGuest(newGuest, hotel);
+  guestInfo(newGuest)
+})
+
+function guestInfo(guestName) {
+  hotel.addGuest(guestName);
+  $('h1').text(guestName);
+  hotel.findExistingGuest(guestName, hotel);
   appendOrders();
   $('.guest-bookings').show();
   $('.guest-orders').show();
@@ -79,19 +102,6 @@ $('.search-for-guest-button').unbind().on('click', function(e) {
   $('.default-guest').hide();
   $('.default-bookings').hide();
   $('.default-orders').hide();
-})
-
-$('.add-guest-button').unbind().on('click', function(e) {
-  e.preventDefault();
-  let newGuest = $('.add-guest-input').val();
-  hotel.addGuest(newGuest);
-  guestInput(newGuest);
-  // domUpdates.guestAdded();
-})
-
-function guestInput(chosenGuest) {
-  $('h1').text(chosenGuest);
-  hotel.findExistingGuest(chosenGuest, hotel);
 }
 
 function appendRooms() {

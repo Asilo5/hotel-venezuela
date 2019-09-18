@@ -104,11 +104,12 @@ class Hotel {
   }
 
   foodMenu() {
+    console.log('hello')
     let allRoomService = this.roomServices.reduce((totalMenu, service) => {
       if (!totalMenu[service.food]) {
         totalMenu[service.food] = service.totalCost
       }
-      return totalMenu;
+      return totalMenu; 
     }, {});
 
     return Object.keys(allRoomService).map((service) => {

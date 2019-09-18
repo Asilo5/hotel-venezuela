@@ -33,8 +33,7 @@ let domUpdates = {
   appendGuestBookings(booking) {
     booking.forEach((room) => {
       $('.bookings-summary').append(`<tr>
-    <td> Date: ${room.date} in Room: ${room.roomNumber} </td>
-    <td><button type="button" data-id="${room.date}">Delete</button></td>
+    <td> Date: ${room.date} in Room: ${room.roomNumber}  <button type="button" data-id="${room.date}">Delete</button></td>
     </tr>)`)
     })
   },
@@ -47,8 +46,8 @@ let domUpdates = {
        <th>Room Type</th>
        <th>Bed Size</th>
        <th>Number of Beds</th>
-      <th>Bidet</th>
-      <th>Cost per Night</th>
+       <th>Bidet</th>
+       <th>Cost per Night</th>
      </tr>`)
     bookings.forEach((booking) => {
       $('.show-rooms-container').append(`
@@ -65,6 +64,7 @@ let domUpdates = {
   },
 
   appendFoodMenu(menu) {
+
     $('.food-menu').append(`
        <tr>
          <th> Food </th>
