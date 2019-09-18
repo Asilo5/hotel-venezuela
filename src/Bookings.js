@@ -1,4 +1,3 @@
-import domUpdates from "./domUpdates";
 
 class Booking {
   constructor(id, name, hotel) {
@@ -18,7 +17,6 @@ class Booking {
   }
 
   unbookRoom(date, roomNum) {
-    // chai spy on this
     let findIndexBooking = this.hotel.bookings.findIndex((booking) => booking.date === date && booking.roomNumber === roomNum);
     return this.hotel.bookings.splice(findIndexBooking, 1);
   }

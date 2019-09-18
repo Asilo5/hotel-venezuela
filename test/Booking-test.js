@@ -1,7 +1,5 @@
 import chai from 'chai';
 const expect = chai.expect;
-const spies = require('chai-spies');
-chai.use(spies);
 
 import Booking from '../src/Bookings';
 import Hotel from '../src/Hotel';
@@ -24,8 +22,7 @@ describe('Booking', () => {
   })
 
   it('should unbook a room for guest', () => {
-
-    expect(booking.unbookRoom('2019/09/21', 12)).to.eql();
+    expect(booking.unbookRoom('2019/09/21', 12)).to.eql([ { userID: 6, date: '2019/09/21', roomNumber: 12 } ]);
   })
 
   it('should purchase room service for guest', () => {
