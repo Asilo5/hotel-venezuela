@@ -85,6 +85,10 @@ let domUpdates = {
         </tr>
       `)
     })
+  },
+
+  roomBooked(room, name) {
+    $('.room-booked').append(`ROOM ${room} HAS BEEN BOOKED FOR ${name}!`)
   }
 };
 

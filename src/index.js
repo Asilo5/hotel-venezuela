@@ -40,9 +40,6 @@ let today = domUpdates.findCurrentDate();
 $('.tab-container .tabs li').on('click', function(e) {
   e.preventDefault();
   let panelSelected = e.target.getAttribute('data-id');
-
-  // panelSelected.find('.tabs li.active').removeClass('active');
-  // $(this).addClass('active');
     
   $('.tab-container .panel.active').slideUp(300, function() {
     $('.tab-container .panel.active').removeClass('active');
@@ -53,14 +50,25 @@ $('.tab-container .tabs li').on('click', function(e) {
   });
 });
 
+$('header').hide();
+$('main').hide();
+
 setTimeout( () => {
+  $('.splash-page').show();
+}, 1500);
+
+setTimeout( () => {
+  $('.splash-page').hide();
+  $('header').fadeIn();
+  $('main').fadeIn();
   hotel = new Hotel(allData);
   $('.revenue-today').html(hotel.revenueToday(today));
   $('.rooms-occupied-today').html(hotel.roomsPercentOccupiedToday(today));
   domUpdates.appendListOfGuests(hotel.users);
   appendRooms();
   domUpdates.appendServicesForToday(hotel.servicesForDay(today));
-}, 500);
+}, 5000);
+
 
 $('.guest-bookings').hide();
 $('.guest-orders').hide();
@@ -122,6 +130,7 @@ $('.rooms-input-button').unbind().on('click', function(e) {
     let targetRoom = $(e.target).attr('data-id');
     let bookTheRoom = hotel.customer.bookings.bookRoom(formattedDate, targetRoom);
     domUpdates.bookARoom(bookTheRoom);
+    domUpdates.roomBooked(targetRoom, hotel.customer.name);
   })
 })
 

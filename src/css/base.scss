@@ -249,3 +249,20 @@ h2 {
   margin: 40px;
   font-size: 40px;
 }
+
+.splash-page {
+  text-align: center;
+  font-size: 20em;
+  position: relative;
+  top: 35%;
+  animation: viva-venezuela infinite 3s linear;
+}
+
+@keyframes viva-venezuela {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
