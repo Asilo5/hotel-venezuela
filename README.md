@@ -5,9 +5,9 @@ Hotel Venezuela Management app allows staff of the hotel to at first see the hot
 ## Created by:
 [Amanda Consuelo Sierra](https://github.com/Asilo5)
 
-## Play Our Game!
+## Check out Hotel Venezuela
 
-Clone our repo to your local computer:``` $ git clone https://github.com/Asilo5/hotel-venezuela.git ```
+Clone the repo to your local computer:``` $ git clone https://github.com/Asilo5/hotel-venezuela.git ```
 
 Run ``` $ npm install ``` in your terminal
 
@@ -15,7 +15,7 @@ To open the app run ``` $ npm start ```
 
 Copy ``` http://localhost:8080/ ``` to paste it on your tab.
 
-## What we used to build it
+## What was used to Hotel Venezuela
 
 Hotel Venezuela management was built using:
   - JavaScript
