@@ -38,6 +38,12 @@ let domUpdates = {
     })
   },
 
+  bookARoom(bookTheRoom) {
+    $('.bookings-summary').append(`<tr>
+    <td> Date: ${bookTheRoom.date} in Room: ${bookTheRoom.roomNumber} <button type="button" data-id="${bookTheRoom.date}">Delete</button></td>
+    </tr>)`)
+  },
+
   appendHotelBookings(bookings, date) {
     $('.show-rooms-container').append(`
       <h3> ${date} </h3>
@@ -64,7 +70,6 @@ let domUpdates = {
   },
 
   appendFoodMenu(menu) {
-
     $('.food-menu').append(`
        <tr>
          <th> Food </th>

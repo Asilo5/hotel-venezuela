@@ -70,23 +70,12 @@ $('.food-menu-container').hide();
 $('.search-for-guest-button').unbind().on('click', function(e) {
   e.preventDefault();
   let chosenGuest = $('.search-for-guest-input').val();
-  // appendOrders();
-  // $('.guest-bookings').show();
-  // $('.guest-orders').show();
-  // $('.food-menu-container').show();
-  
-  // $('.default-guest').hide();
-  // $('.default-bookings').hide();
-  // $('.default-orders').hide();
   guestInfo(chosenGuest);
 })
 
 $('.add-guest-button').unbind().on('click', function(e) {
   e.preventDefault();
   let newGuest = $('.add-guest-input').val();
-  // hotel.addGuest(newGuest);
-  // $('h1').text(newGuest);
-  // hotel.findExistingGuest(newGuest, hotel);
   guestInfo(newGuest)
 })
 
@@ -126,8 +115,16 @@ $('.rooms-input-button').unbind().on('click', function(e) {
   e.preventDefault();
   let chosenDate = $('.rooms-input').val();
   let formattedDate = chosenDate.replace(/-/gi, "/");
-  domUpdates.appendHotelBookings(hotel.roomsAvailableToday(formattedDate), chosenDate);
+  domUpdates.appendHotelBookings(hotel.roomsAvailableToday(formattedDate), formattedDate);
+
+  $('.show-rooms-container').on('click', function(e) {
+    e.preventDefault();
+    let targetRoom = $(e.target).attr('data-id');
+    let bookTheRoom = hotel.customer.bookings.bookRoom(formattedDate, targetRoom);
+    domUpdates.bookARoom(bookTheRoom);
+  })
 })
+
 
 
 
