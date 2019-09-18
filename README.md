@@ -5,7 +5,7 @@ Hotel Venezuela Management app allows staff of the hotel to at first see the hot
 ## Created by:
 [Amanda Consuelo Sierra](https://github.com/Asilo5)
 
-## Check out Hotel Venezuela
+## View Hotel Venezuela locally in your computer
 
 Clone the repo to your local computer:``` $ git clone https://github.com/Asilo5/hotel-venezuela.git ```
 
