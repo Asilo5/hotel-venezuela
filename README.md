@@ -15,7 +15,7 @@ To open the app run ``` $ npm start ```
 
 Copy ``` http://localhost:8080/ ``` to paste it on your tab.
 
-## What was used to Hotel Venezuela
+## What was used to build Hotel Venezuela
 
 Hotel Venezuela management was built using:
   - JavaScript
