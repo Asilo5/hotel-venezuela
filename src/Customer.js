@@ -28,7 +28,6 @@ class Customer {
   }
 
   bookingsFromGuest() {
-    // use chai spy here!!
     this.bookings = new Booking(this.id, this.name, this.hotel);
   }
 }

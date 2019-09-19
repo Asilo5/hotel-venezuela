@@ -1,5 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
 
 import Hotel from '../src/Hotel';
 import sampleData from '../src/sample-data/all-sample-data'
@@ -49,8 +51,9 @@ describe('Hotel', () => {
   })
 
   it('should find existing guest', () => {
-    // USE SPY HERE
-    expect(hotel.findExistingGuest('Winnifred Kris')).to.eql();
+    chai.spy.on(hotel, ['findExistingGuest'], () => {});
+    hotel.findExistingGuest('Consuelo', hotel);
+    expect(hotel.findExistingGuest).to.have.been.called(1);
   })
 
   it('should add guest to data', () => {
